@@ -38,10 +38,10 @@ func main() {
 	sig := make(chan os.Signal, 1)
 	signal.Notify(sig, syscall.SIGINT, syscall.SIGTERM)
 	fmt.Printf("quit (%v)\n", <-sig)
-
-	// 用Ctrl+C可以终止程序运行.
-	// 但是通过kill可能只能终止主进程的运行, 子进程会被init接管导致程序一直输出无法终止.
-	// 需要通过ps -eLf | grep go找到在运行的子进程并kill掉.
-	// 本次ps查到的进程为:
-	// m         3638     1  3638  0   10 22:40 pts/0    00:00:00 /tmp/go-build459633756/b001/exe/main
 }
+
+// 用Ctrl+C可以终止程序运行.
+// 但是通过kill可能只能终止主进程的运行, 子进程会被init接管导致程序一直输出无法终止.
+// 需要通过ps -eLf | grep go找到在运行的子进程并kill掉.
+// 本次ps查到的进程为:
+// m         3638     1  3638  0   10 22:40 pts/0    00:00:00 /tmp/go-build459633756/b001/exe/main
