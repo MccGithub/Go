@@ -1,3 +1,3 @@
-module github.com/MccGithub/Go
+module github.com/chive-chan/Go
 
 go 1.12
